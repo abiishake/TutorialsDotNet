@@ -1,0 +1,31 @@
+To install -
+	npm install --global typescript
+
+The typescript packages installed will include a compiler - 'tsc', which compiles the typescript code to pure javascript code.
+To define the configuration for the typescript compiler, create  a file - tsconfig.json with the following content
+	{
+    "compilerOptions": {
+        "target": "es2018",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "module": "CommonJS"
+		}
+	}
+These will tell the compiler that I want to use the latest javascript, that the project's typescript file will in the 'src' folder, and output it produces will be in the 'dist' folder and the commonjs standard should be used for loading code from separate files.
+
+Syntax:
+	defining a class:
+		export class ClassName{
+			public porperty_name string;  //string is a variable type
+			
+			constructor(variable_name: string){ //string is a variable type // it can have access modifier - e.g. public, private
+				
+			}
+		}
+
+Access keywords are provided by the Typescript, not JS.
+Support for static datatypes - e.g public variable_name string; // making it acceppt only string datatype.
+Typescript assumes that all method are public if there is no access modifier mentioned.
+
+Map in JS - Key Value Dictionary Pair
+JS spread operator - ... to create array

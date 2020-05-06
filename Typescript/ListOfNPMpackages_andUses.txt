@@ -1,0 +1,4 @@
+PackageName	Usage
+inquirer	to prompt for the user's response
+lowdb	for storing temporary data in a json file
+nodemon	for automatically executing the javascript when its contents change

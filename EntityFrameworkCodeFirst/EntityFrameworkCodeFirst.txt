@@ -1,0 +1,2 @@
+To override conventions - Using the EF Fluent API - how? - by overriding the method - 
+OnModelCreating(DbModelBuilder modelBuilder)
