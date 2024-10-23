@@ -1,0 +1,76 @@
+Auto Scaling ->
+	Autoscaling allows yout to specify the condition under which the app should be scaled out or scaled back in. (Q -> How?)
+	You can select the autoscale condition based on resource or based on schedule.
+	
+	Its a feature of App service plan used by webapp.
+	When the app scales out, azure starts a new instance of the hardware defined by app service plan to app
+	
+	Note - not all App Service Plan supports autoscaling
+	
+	Auto scale conditions-	
+		Two options-
+			1. Scale based on metric such as lenght of disk queue, or number of Http request awaiting processing
+			2. as per schedule on any day
+			
+		You can scale based no conditions during a scheduled day
+		It also has a default condition if no other conditions are applicable
+	
+	Metrics for Auto-scale rule
+		CPU Percentage
+		Memory Percentage -
+		Disk Queue Length
+		Http Queue length
+		Data In
+		Data out
+	
+	How it works
+		It analyzes trends in metrics
+			Steps
+				1. aggregates the value of the metrics over a time frame called time grain
+				2. One minute is small to guess, so it performs a second step for a time period called Duration set by user, min is 5 min
+	
+	Autoscale actions
+		Auto-scale out or in
+		Autoscale has a cooldown perion during which it wont trigger another autoscale, min is 5min
+		
+	CMD - 
+		'az webapp up' - to deploy, it checks if the app service exists, if it doesnt it will create for you.
+	
+	
+	Networking - 
+		By default, apps hosted in App Service are accessible directly through the internet and can reach only internet-hosted endpoints
+		Free, Shared, Basic, Standard, Premium, Premium V2 and Premium V3 pricing SKUs
+		
+	Multitenant App service Networking features
+		AAS is a distributed system, the roles that handles HTTP or HTTPs request is called as front end, the roles that host the customer workload are called as workers.
+		
+		You cant connect App Service network directly to your network, because there are many differnt customer in the same App Service Scale unit
+		
+	Inbound Features - 
+		App-assigned address - only on Basic Plan or higher except Isolated V2 plan
+ 		Access restriction - only on Elastic Premium, Premium v2, Premium v3 and isolated v2 plan
+		Service Endpoints
+		Private Endpoints
+	
+	Outbound Features-
+		Hybrid Connection - not for free, shared or consumption plan
+		Vnet Integration - ONly on standard and above, except isolated v2 and excluding app in internal app service environment
+		Gateway required Vnet Integration
+	
+	
+	If you have a Standard App Service plan, all the apps in that plan will run on the same worker.
+	If you scale out the worker, all the apps in that App Service plan will be replicated on a new worker for each instance in your App Service plan.
+	
+Configure application settings
+	In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the --env flag to set the environment variable in the container.
+	App settings are always encrypted when stored (encrypted-at-rest).
+	
+	In a default, or custom, Linux container any nested JSON key structure in the app setting name like ApplicationInsights:InstrumentationKey needs to be configured in App Service as ApplicationInsights__InstrumentationKey for the key name. In other words, any : should be replaced by __ (double underscore).
+	
+	Debugging: Enable remote debugging for ASP.NET, ASP.NET Core, or Node.js apps. This option turns off automatically after 48 hours.
+
+
+Scale Apps
+	Autoscaling doesn't have any effect on the CPU power, memory, or storage capacity of the web servers powering the app, it only changes the number of web servers.
+	
+	

@@ -1,0 +1,54 @@
+Azure Functions - 
+	Lets you develop a serverless application on Azure - write the code needed in hand
+	
+	Triggers - 
+		ways to start the execution of the code
+		
+	and
+	
+	Binding - 
+		ways to simplify the coding for input and the output data
+		
+	Azure funciton is a serverless compute service
+	Azure Logicapps is a serverless workflow
+	
+	Both can create complex orchestations - it is a colleciton of funcitons or steps, called actions in the Logic Apps that are executed to achieve a complex task
+	
+	For Azure funcition you create orchestations by writing code	
+	For login apps you create orchestations by using GUI and configurations
+	
+	Azure Function
+		Monitoring - Azure Application Insights
+		Management - REST API, Visual Studio
+		Execution Context - can run locally or in the cloud
+		
+	Azure Logic Apps -
+		Monitoring - Azure portal, Monitoring Logs
+		Management - REST API, Visual Studio, Powershell, Azure Portal
+		Execution Context - supports run anywhere scenario
+		
+	Webjobs SDK
+		
+	Three plan for Azure Function -
+		Consumption Plan
+		Function Premium Plan
+		App service (dedicated) plan
+	
+	
+	Always On
+	If you run on an App Service plan, you should enable the Always on setting so that your function app runs correctly.
+	
+	Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. There are a few intricacies of scaling behaviors to be aware of:
+
+	Maximum instances: A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
+
+	New instance rate: For HTTP triggers, new instances are allocated, at most, once per second. For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a Premium plan.
+	
+Durable Functions
+	The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following sections describe typical application patterns that can benefit from Durable Functions:
+
+	Function chaining
+	Fan-out/fan-in
+	Async HTTP APIs
+	Monitor
+	Human interaction

@@ -1,0 +1,2 @@
+--> JS doesnt uses the class name as constructor unlike C#
+
